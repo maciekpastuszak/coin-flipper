@@ -6,7 +6,7 @@ export default class CoinFlipper extends Component {
     static defaultProps = {
         coins: [
             {side: 'orzel', imgSrc: "https://tinyurl.com/react-coin-heads-jpg"},
-            {side: 'reszka', imgSrc: "https://tinyurl.com/react-coin-tails-jpg"}
+            {side: 'reszka', imgSrc: "http://www.pcgscoinfacts.com/UserImages/71009269r.jpg"}
         ]
     };
     constructor(props) {
@@ -38,6 +38,7 @@ this.setState(st => {
             <div className="CoinFlipper">
                 <h2>Rzućmy monetą!</h2>
                 <button onClick={this.handleClick}>Rzuć monetą!</button>
+                {this.state.currCoin && <Coin info={this.state.currCoin} />}
                 <p> Na {this.state.nFlips} rzutów, wyrzuciłeś {this.state.nOrzel} orłów i {this.state.nReszka} reszek</p>
             </div>
         )
