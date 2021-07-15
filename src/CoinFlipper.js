@@ -22,17 +22,12 @@ export default class CoinFlipper extends Component {
     flipCoin() {
 const newCoin = choice(this.props.coins);
 this.setState(st => {
-    let newState = {
-        ...st,
+    return {
         currCoin: newCoin,
-        nFlips: st.nFlips + 1
+        nFlips: st.nFlips + 1,
+        nOrzel: st.nOrzel + (newCoin.side === 'orzel' ? 1 : 0),
+        nReszka: st.nReszka + (newCoin.side === 'reszka' ? 1 : 0)
     }
-    if(newCoin.side === 'orzel'){
-        newState.nOrzel += 1;
-    } else {
-        newState.nReszka += 1;
-    }
-    return newState;
 })
     }
     handleClick(e) {
